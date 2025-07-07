@@ -45,7 +45,7 @@ func main() {
 	fmt.Println(user)
 
 	fmt.Println("Адрес до", message.address)
-	message.address = "7771234567"
+	message.address = "7771234568"
 	fmt.Println("Адрес после", message.address)
 
 }
