@@ -58,33 +58,45 @@ func NewFlat(
 func (mf *Flat) changeCostFlat(newCost int) {
 	if newCost > 0 {
 		mf.cost = newCost
-		fmt.Println("\nСтомость квартиры изменена на:", mf.cost)
+		fmt.Println("\nСтомость квартиры по адресу", mf.address, "изменена на:", mf.cost)
 	} else {
 		fmt.Println("\n	>>> WARN: Изменение стоимости квартиры не произведено, т.к. не может быть меньше 0")
 	}
 }
 
 func main() {
-	my_flat := NewFlat(
+	flat_1 := NewFlat(
 		"Москва, Подольских курсантов, д 12 к 1 кв 11",
 		44.0,
-		44,
+		4,
 		15000000,
 	)
 	fmt.Println("\nИсходные данные по квартире:\n",
-		"		Адрес: ", my_flat.address,
-		"\n		Площадь: ", my_flat.square,
-		"\n		Этаж: ", my_flat.floor,
-		"\n		Стоимость: ", my_flat.cost)
+		"		Адрес: ", flat_1.address,
+		"\n		Площадь: ", flat_1.square,
+		"\n		Этаж: ", flat_1.floor,
+		"\n		Стоимость: ", flat_1.cost)
 
-	my_flat.changeCostFlat(16000000)
+	flat_2 := NewFlat(
+		"Москва, Крутицкая набережная д 15 кв 14",
+		39.0,
+		2,
+		18000000,
+	)
+	fmt.Println("\nИсходные данные по квартире:\n",
+		"		Адрес: ", flat_2.address,
+		"\n		Площадь: ", flat_2.square,
+		"\n		Этаж: ", flat_2.floor,
+		"\n		Стоимость: ", flat_2.cost)
 
+	flat_1.changeCostFlat(16000000)
+	flat_2.changeCostFlat(25000000)
 	// можем изменить напрямую , при этом проверки не будет
 	// my_flat.cost = -100
 
 	fmt.Println("\nОбновлённые данные по квартире:\n",
-		"		Адрес: ", my_flat.address,
-		"\n		Площадь: ", my_flat.square,
-		"\n		Этаж: ", my_flat.floor,
-		"\n		Стоимость: ", my_flat.cost)
+		"		Адрес: ", flat_1.address,
+		"\n		Площадь: ", flat_1.square,
+		"\n		Этаж: ", flat_1.floor,
+		"\n		Стоимость: ", flat_1.cost)
 }
