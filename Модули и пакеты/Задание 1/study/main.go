@@ -8,4 +8,5 @@ import (
 func main() {
 	fmt.Println("Hello in MAIN")
 	greeting.SayHello()
+	greeting.SayBad()
 }
