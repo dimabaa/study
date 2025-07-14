@@ -2,11 +2,29 @@ package main
 
 import (
 	"fmt"
-	"study/greeting"
+	"study/user"
+
+	"github.com/k0kubun/pp/v3"
 )
 
 func main() {
-	fmt.Println("Hello in MAIN")
-	greeting.SayHello()
-	greeting.SayBad()
+	u := user.NewUser(
+		"Dima",
+		32,
+		"Support Engeneer",
+	)
+	u2 := user.NewUser(
+		"Petr",
+		24,
+		"Senior Java Developer",
+	)
+	fmt.Println(u, u2)
+	pp.Println(u, u2)
+	u.NewName("Dmitry")
+	u.NewAge(33)
+	u.NewProf("Golang")
+	fmt.Println(u)
+	fmt.Println(u.GetName())
+	fmt.Println(u.GetAge())
+	fmt.Println(u.GetName())
 }
