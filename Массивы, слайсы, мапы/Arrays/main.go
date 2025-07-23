@@ -36,21 +36,39 @@ func main() {
 
 	fmt.Println("Before:")
 	fmt.Println("--------------------")
-	for i := 0; i < len(userArray); i++ {
-		pp.Println(userArray[i])
+
+	for _, user := range userArray {
+		pp.Println(user)
 	}
+
+	/*
+		for i := 0; i < len(userArray); i++ {
+			pp.Println(userArray[i])
+		}
+	*/
 	fmt.Println("")
 
-	for i := 0; i < len(userArray); i++ {
-		if userArray[i].Premium {
-			userArray[i].Rating += 1.0
+	// for i := 0; i < len(userArray); i++ {
+	// 	if userArray[i].Premium {
+	// 		userArray[i].Rating += 1.0
+	// 	}
+	// }
+
+	for index, value := range userArray {
+		if value.Premium {
+			userArray[index].Rating += 1.5
 		}
 	}
 
 	fmt.Println("After:")
 	fmt.Println("--------------------")
-	for i := 0; i < len(userArray); i++ {
-		pp.Println(userArray[i])
+	// for i := 0; i < len(userArray); i++ {
+	// 	pp.Println(userArray[i])
+	// }
+
+	for index, value := range userArray {
+		fmt.Println("Индекс:", index)
+		pp.Println("Значение:", value)
 	}
 
 }
