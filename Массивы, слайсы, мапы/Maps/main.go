@@ -3,20 +3,25 @@ package main
 import "fmt"
 
 func main() {
-	weather := map[int]int{
-		11: +3,
-		12: +6,
-		13: +0,
-		14: -4,
-		15: +1,
-		30: 0,
-	}
-	fmt.Println(weather[12])
-	c, ok := weather[30]
-	fmt.Println(c, ok)
 
-	fmt.Println(weather[30])
-	fmt.Println(weather[40])
-	weather[20] = -10
-	fmt.Println(weather[20])
+	people := make(map[string]bool, 3)
+
+	people["Иван Иванов"] = true
+	people["Сергей Петров"] = false
+
+	c, ok := people["Сергей Петров"]
+
+	if !ok {
+		fmt.Println("people NOT found in database")
+		return
+	}
+
+	if ok {
+		if c {
+			fmt.Println("people is Criminal")
+		} else {
+			fmt.Println("people is NOT criminal")
+		}
+	}
+	fmt.Println(c, ok)
 }
