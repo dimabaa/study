@@ -1,6 +1,8 @@
 package main
 
-import "todo_list/scanner"
+import (
+	"todo_list/scanner"
+)
 
 func main() {
 
