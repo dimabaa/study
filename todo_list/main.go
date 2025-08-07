@@ -26,30 +26,50 @@ func Task(subject string, text string) TaskStruct {
 
 }
 func main() {
-
-	SliceTask := make([]int, 0, 10)
-
-	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Println("Вас приветствует ToDo List")
-	fmt.Println("Введите одну из команд:")
-	fmt.Println("			добавить")
-	fmt.Println("			удалить")
-	fmt.Println("			лист")
-	fmt.Print("Ждём ввод: ")
+	for {
+		SliceTask := make([]TaskStruct, 0, 10)
 
-	scanner.Scan()
-	vvod := scanner.Text()
-	if vvod == "добавить" {
-		fmt.Print("Введите тему задачи: ")
+		scanner := bufio.NewScanner(os.Stdin)
+		fmt.Println("")
+
+		fmt.Println("Введите одну из команд:")
+		fmt.Println("			1 = добавить")
+		fmt.Println("			2 = удалить")
+		fmt.Println("			3 = все задачи")
+		fmt.Println("			4 = выход")
+		fmt.Print("Что выполняем: ")
+
 		scanner.Scan()
-		vvodSubject := scanner.Text()
-		fmt.Print("Введите текст: ")
-		scanner.Scan()
-		vvodText := scanner.Text()
-		new := Task(vvodSubject, vvodText)
-		pp.Println(new)
-		SliceTask = append(SliceTask, new)
+		vvod := scanner.Text()
+		// добавить
+		if vvod == "1" {
+			fmt.Print("Введите тему задачи: ")
+			scanner.Scan()
+			vvodSubject := scanner.Text()
+			fmt.Print("Введите текст: ")
+			scanner.Scan()
+			vvodText := scanner.Text()
+			new := Task(vvodSubject, vvodText)
+			pp.Println(new)
+			SliceTask = append(SliceTask, new)
+		}
+		// удалить
+		if vvod == "2" {
+			fmt.Println("Функция удаления ещё не реализована")
+
+		}
+		// задачи
+		if vvod == "3" {
+			pp.Println(SliceTask)
+
+		}
+		// выход
+		if vvod == "4" {
+			fmt.Println("До скорой встречи!")
+			return
+		} else {
+			fmt.Println("Такой команды не существует")
+		}
 	}
-	fmt.Println("Ваша команда:", vvod)
-
 }
