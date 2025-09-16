@@ -51,5 +51,6 @@ func main() {
 	for _, value := range sliceMessage {
 		pp.Println(value)
 	}
+	fmt.Println("Длина массива", len(sliceMessage))
 	fmt.Println("Капасити (вместимость слайса):", cap(sliceMessage))
 }
