@@ -34,7 +34,16 @@ func RemoveTask(SliceTask []TaskStruct, Subject string) {
 			break
 		}
 	}
-	fmt.Println(index)
+	if index != -1 {
+		fmt.Println("К удалению задача с id: <", index, "> и темой:", Subject)
+		pp.Println("INFO: Функция удаления ещё не реализована")
+		lenSliceAfter := len(SliceTask)
+		aaa := append(SliceTask[:index], SliceTask[index+1:]...)
+		fmt.Println(aaa)
+		fmt.Println("Длина слайса до удаления:", lenSliceAfter, "длина слайса после удаления:", len(aaa))
+	} else {
+		pp.Println("Задача не найдена!")
+	}
 }
 
 func main() {
@@ -66,14 +75,10 @@ func main() {
 			SliceTask = append(SliceTask, new)
 			pp.Println("Добавлена задача: ", new)
 		} else if vvod == "2" { // удалить
-			pp.Println("INFO: Функция удаления ещё не реализована")
-			fmt.Print("Введите название задачи, которую требуется удалить:")
+			fmt.Print("Введите название задачи, которую требуется удалить: ")
 			scanner.Scan()
 			vvodSubject := scanner.Text()
-			fmt.Print("Вы хотите удалить задачу номер: ")
 			RemoveTask(SliceTask, vvodSubject)
-			fmt.Print("")
-			fmt.Print("Но пока мы не реализовали эту функцию")
 		} else if vvod == "3" { // задачи
 			fmt.Print("Всего задач: ", len(SliceTask), " | Капасити слайса: ", cap(SliceTask))
 			fmt.Println("")
